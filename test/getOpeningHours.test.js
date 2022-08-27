@@ -2,7 +2,7 @@ const getOpeningHours = require('../src/getOpeningHours');
 
 describe('Testes da função getOpeningHours', () => {
   it('Verificar se a função getOpeningHours retorna uma mensagem de erro The abbreviation must be AM or PM', () => {
-    expect(() => getOpeningHours('Wednesday', '09:00-BM')).toThrow(`The abbreviation must be 'AM' or 'PM'`);
+    expect(() => getOpeningHours('Wednesday', '09:00-BM')).toThrow('The abbreviation must be `AM` or `PM`');
   });
   it('Verificar se a função getOpeningHours retorna uma mensagem de erro The hour must be between 0 and 12', () => {
     expect(() => getOpeningHours('Wednesday', '40:00-PM')).toThrow('The hour must be between 0 and 12');
@@ -37,7 +37,7 @@ describe('Testes da função getOpeningHours', () => {
       Friday: { open: 10, close: 8 },
       Saturday: { open: 8, close: 10 },
       Sunday: { open: 8, close: 8 },
-      Monday: { open: 0, close: 0 }
+      Monday: { open: 0, close: 0 },
     };
     expect(actual).toEqual(expected);
   });
