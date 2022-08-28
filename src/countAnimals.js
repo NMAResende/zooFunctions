@@ -18,6 +18,6 @@ function countAnimals(animal) {
   return quantAnimais;
 }
 
-console.log(countAnimals({ specie: 'penguins', sex: 'female' }));
+console.log(countAnimals());
 
 module.exports = countAnimals;
