@@ -9,25 +9,26 @@ const entrants = [
   { name: 'Núbia Souza', age: 18 },
   { name: 'Carlos Nogueira', age: 50 },
 ];
-function countEntrants(entrants) {
+
+function countEntrants(entrada) {
   const newObj = {
-    child: entrants.filter((criancas) => criancas.age < 18).length,
-    adult: entrants.filter((adultos) => adultos.age >= 18 && adultos.age < 50).length,
-    senior: entrants.filter((idoso) => idoso.age >= 50).length,
+    child: entrada.filter((criancas) => criancas.age < 18).length,
+    adult: entrada.filter((adultos) => adultos.age >= 18 && adultos.age < 50).length,
+    senior: entrada.filter((idoso) => idoso.age >= 50).length,
   };
   return newObj;
 }
 
-function calculateEntry(entrants) {
-  if (!entrants || JSON.stringify(entrants) === '{}') { // Referência: https://levelup.gitconnected.com/different-ways-to-check-if-an-object-is-empty-in-javascript-e1252d1c0b34
+function calculateEntry(entradas) {
+  if (!entradas || JSON.stringify(entradas) === '{}') { // Referência: https://levelup.gitconnected.com/different-ways-to-check-if-an-object-is-empty-in-javascript-e1252d1c0b34
     return 0;
   }
-  const { child, adult, senior } = countEntrants(entrants);
+  const { child, adult, senior } = countEntrants(entradas);
   const crianca = prices.child * child;
   const adulto = prices.adult * adult;
   const idoso = prices.senior * senior;
   return crianca + adulto + idoso;
 }
 
-console.log(calculateEntry());
+console.log(calculateEntry(entrants));
 module.exports = { calculateEntry, countEntrants };
