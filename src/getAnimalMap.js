@@ -2,11 +2,16 @@ const { species } = require('../data/zoo_data');
 const data = require('../data/zoo_data');
 
 function localizacaoSpecie(loc) {
-  const locali = species.filter((local) => local.location === loc)
-    .map((specie) => loc.location = specie.name);
-  return locali;
+  const place = species.reduce((acc, curr) => {
+    if (curr.location === loc) {
+      acc.push(curr.name);
+    }
+    return acc;
+  }, []);
+  return place;
 }
 
+console.log(localizacaoSpecie('NE'));
 function animal(ani) {
   const anim = species.find((nome) => nome.name === ani).residents
     .map((nomes) => nomes.name);
